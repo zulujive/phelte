@@ -11,6 +11,10 @@ if ($argv[1] === 'update') {
     $destDir = 'src/public/';
     exec("rsync -a --delete $srcDir $destDir");
 
+    chdir('src/phelte/assemblers');
+
+    exec('php assembleAPI.php');
+
 } elseif ($argv[1] === 'construct') {
     chdir('src/phelte/constructors');
 
