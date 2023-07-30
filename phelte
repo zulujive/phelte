@@ -11,6 +11,20 @@ if ($argv[1] === 'update') {
     $destDir = 'src/public/';
     exec("rsync -a --delete $srcDir $destDir");
 
+} elseif ($argv[1] === 'construct') {
+    chdir('src/phelte/constructors');
+
+    echo "What method should your API use (GET/POST)?\n";
+    $inptMethod = readline();
+    echo "\n";
+    echo "What is your API's URI path (ex: /api/test)?\n";
+    $inptPath = readline();
+    echo "\n";
+    echo "What is the name of your controller?\n";
+    $inptController = readline();
+
+    exec("php constructAPI.php $inptMethod $inptPath $inptController");
+
 } else {
     echo "Unknown command. Usage: php phelte [command]" . PHP_EOL;
 }
