@@ -1,0 +1,16 @@
+<?php
+if ($argv[1] === 'update') {
+    chdir('src/svelte_app');
+
+    exec('npm run build');
+
+    chdir('../..');
+
+    // Using rsync to copy and sync the directories
+    $srcDir = 'src/svelte_app/public/';
+    $destDir = 'src/public/';
+    exec("rsync -a --delete $srcDir $destDir");
+
+} else {
+    echo "Unknown command. Usage: php phelte [command]" . PHP_EOL;
+}
