@@ -35,6 +35,7 @@ You will be prompted with the method, path and the name for the controller itsel
 You can then use the API to call your application's backend script. We recommend placing this within the "app" folder as it is near your APIs and will not interfere with the framework.
 
 To compile your app, simply use this command in the project's root directory:
+
 ```php phelte update```
 
 This will compile your APIs and Svelte to the src/public directory. You can serve this directory by using a web server or PHP's built-in development server.
